@@ -1,0 +1,22 @@
+---
+- name: Install git packages
+  tags: git
+  yum: name={{ item }}
+       state=present
+       update_cache=yes
+  register: git_yum
+  with_items: "{{ git_packages }}"
+
+- name: Check-out git repositories
+  tags: git
+  git: repo="https://{{ item.value.server }}/{{ item.value.org }}/{{ item.key }}.git"
+       dest={{ item.value.dst }}
+       force=yes
+       update=yes
+  with_dict: "{{ git_repos }}"
+  when:
+    - item.key is defined
+    - item.value.dst is defined
+    - item.value.org is defined
+    - item.value.server is defined
+    - git_yum|success
