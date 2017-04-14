@@ -3,7 +3,7 @@ allow_duplicates: yes
 dependencies: []
 galaxy_info:
   author: tkimball83
-  description: RHEL/CentOS - Check-out git repositories
+  description: RHEL/CentOS - Clone git repositories
   license: BSD
   min_ansible_version: 2.0
   platforms:
@@ -14,3 +14,4 @@ galaxy_info:
   galaxy_tags:
     - git
     - system
+...
