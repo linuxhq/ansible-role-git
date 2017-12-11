@@ -1,20 +1,36 @@
 ---
-- name: Ensure that git packages are installed
+- name: Ensure that the git packages are installed
   tags: git
+  become: true
   yum:
     name: "{{ item }}"
     state: present
-    update_cache: yes
   register: git_yum
   with_items: "{{ git_packages }}"
 
-- name: Clone git repositories
+- name: Cloning git repositories
   tags: git
   git:
+    accept_hostkey: "{{ item.value.accept_hostkey|default('no') }}"
+    archive: "{{ item.value.archive|default(omit) }}"
+    bare: "{{ item.value.bare|default('no') }}"
+    clone: "{{ item.value.clone|default('yes') }}"
+    depth: "{{ item.value.depth|default(omit) }}"
     dest: "{{ item.value.dst }}"
-    force: yes
+    executable: "{{ item.value.executable|default(omit) }}"
+    force: "{{ item.value.force|default('no') }}"
+    key_file: "{{ item.value.key_file|default(omit) }}"
+    recursive: "{{ item.value.recursive|default('yes') }}"
+    reference: "{{ item.value.reference|default(omit) }}"
+    refspec: "{{ item.value.refspec|default(omit) }}"
+    remote: "{{ item.value.remote|default(omit) }}"
     repo: "https://{{ item.value.server }}/{{ item.value.org }}/{{ item.key }}.git"
-    update: yes
+    ssh_opts: "{{ item.value.ssh_opts|default(omit) }}"
+    track_submodules: "{{ item.value.track_submodules|default('no') }}"
+    umask: "{{ item.value.umask|default(omit) }}"
+    update: "{{ item.value.update|default('yes') }}"
+    verify_commit: "{{ item.value.verify_commit|default('no') }}"
+    version: "{{ item.value.version|default(omit) }}"
   with_dict: "{{ git_repos }}"
   when:
     - item.key is defined

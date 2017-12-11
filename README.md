@@ -12,8 +12,9 @@ None
 
 Available variables are listed below, along with default values:
 
-    git_packages: [ 'git-all' ]
-    git_repos: ''
+    git_packages:
+      - git-all
+    git_repos: {}
 
 You can clone multiple repositories by doing the following:
 
@@ -42,7 +43,7 @@ None
 
 ## License
 
-BSD
+GPLv3
 
 ## Author Information
 

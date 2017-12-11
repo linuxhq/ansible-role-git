@@ -1,4 +1,5 @@
 ---
-git_packages: [ 'git-all' ]
-git_repos: ''
+git_packages:
+  - git-all
+git_repos: {}
 ...
