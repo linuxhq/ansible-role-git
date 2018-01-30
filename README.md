@@ -16,16 +16,18 @@ Available variables are listed below, along with default values:
       - git-all
     git_repos: {}
 
-You can clone multiple repositories by doing the following:
+You can clone multiple repositories by doing the following (protocol defaults to https):
 
     git_repos:
       ansible-role-dome9:
         dst: "{{ ansible_env.HOME }}/ansible-role-dome9"
         org: linuxhq
+        protocol: ssh
         server: github.com
       ansible-role-dome9agent:
         dst: "{{ ansible_env.HOME }}/ansible-role-dome9agent"
         org: linuxhq
+        protocol: git
         server: github.com
 
 ## Dependencies

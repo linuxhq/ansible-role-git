@@ -24,7 +24,7 @@
     reference: "{{ item.value.reference|default(omit) }}"
     refspec: "{{ item.value.refspec|default(omit) }}"
     remote: "{{ item.value.remote|default(omit) }}"
-    repo: "https://{{ item.value.server }}/{{ item.value.org }}/{{ item.key }}.git"
+    repo: "{{ item.value.protocol|default('https') }}://{{ item.value.server }}/{{ item.value.org }}/{{ item.key }}.git"
     ssh_opts: "{{ item.value.ssh_opts|default(omit) }}"
     track_submodules: "{{ item.value.track_submodules|default('no') }}"
     umask: "{{ item.value.umask|default(omit) }}"
