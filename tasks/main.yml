@@ -8,7 +8,7 @@
   register: git_yum
   with_items: "{{ git_packages }}"
 
-- name: Cloning git repositories
+- name: Attempting to clone git repositories
   tags: git
   git:
     accept_hostkey: "{{ item.value.accept_hostkey|default('no') }}"
@@ -37,5 +37,5 @@
     - item.value.dst is defined
     - item.value.org is defined
     - item.value.server is defined
-    - git_yum|success
+    - git_yum is success
 ...
