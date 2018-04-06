@@ -2,10 +2,10 @@
 - name: Ensure that the git packages are installed
   tags: git
   become: true
-  yum:
+  package:
     name: "{{ item }}"
     state: present
-  register: git_yum
+  register: git_package
   with_items: "{{ git_packages }}"
 
 - name: Attempting to clone git repositories
@@ -37,5 +37,5 @@
     - item.value.dst is defined
     - item.value.org is defined
     - item.value.server is defined
-    - git_yum is success
+    - git_package is success
 ...

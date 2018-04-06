@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/linuxhq/ansible-role-git.svg?branch=master)](https://travis-ci.org/linuxhq/ansible-role-git)
 
-RHEL/CentOS - Clone git repositories
+Linux - Clone git repositories
 
 ## Requirements
 
