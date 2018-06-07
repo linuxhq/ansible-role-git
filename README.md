@@ -1,6 +1,8 @@
 # ansible-role-git
 
 [![Build Status](https://travis-ci.org/linuxhq/ansible-role-git.svg?branch=master)](https://travis-ci.org/linuxhq/ansible-role-git)
+[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-git-blue.svg?style=flat)](https://galaxy.ansible.com/linuxhq/git)
+[![License](https://img.shields.io/badge/license-GPLv3-brightgreen.svg?style=flat)](COPYING)
 
 Linux - Clone git repositories
 
