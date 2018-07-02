@@ -2,6 +2,7 @@
 allow_duplicates: yes
 dependencies: []
 galaxy_info:
+  role_name: git
   author: tkimball83
   description: Linux - Clone git repositories
   license: GPLv3
